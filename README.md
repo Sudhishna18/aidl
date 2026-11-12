@@ -25,3 +25,57 @@ Step 5: Design layout in activity_main.xml.
 Step 6: Display message give in MainActivity file(client/server).
 
 Step 7: Save and run the application.
+
+## PROGRAM:
+```
+/*
+Program to print the client/server services using AIDL”.
+Developed by: SUDHISHNA P
+Registeration Number : 212224040336
+*/
+```
+## SERVER APP:
+## IColorService.aidl
+```JAVA
+package com.example.aidlserver;
+
+interface IColorService {
+     int getRandomColor();
+}
+```
+
+## ColorService.java
+```JAVA
+package com.example.aidlserver;
+
+import android.app.Service;
+import android.content.Intent;
+import android.os.IBinder;
+import android.os.RemoteException;
+import android.graphics.Color;
+import java.util.Random;
+
+public class ColorService extends Service {
+
+    private final IColorService.Stub binder = new IColorService.Stub() {
+
+        @Override
+        public int getRandomColor() throws RemoteException {
+
+            Random random = new Random();
+
+            int red = random.nextInt(256);
+            int green = random.nextInt(256);
+            int blue = random.nextInt(256);
+
+            return Color.rgb(red, green, blue);
+        }
+    };
+
+    @Override
+    public IBinder onBind(Intent intent) {
+        return binder;
+    }
+}
+```
+
