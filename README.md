@@ -308,6 +308,10 @@ public class MainActivity extends AppCompatActivity {
 ## CLIENT
 <img width="1917" height="1141" alt="Screenshot 2026-11-12 170538" src="https://github.com/user-attachments/assets/7a0b812d-306e-4b35-99f0-ac1dd600b541" />
 
+## RESULT
+Thus a Simple Android Application to create a AIDL interface and communicate the process between client and server using AIDL interface in Android Studio is developed and executed successfully.
+
+
 
 
 
