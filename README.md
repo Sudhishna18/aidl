@@ -172,5 +172,54 @@ public class MainActivity extends AppCompatActivity {
     private Button btnChangeColor;
 
     private ServiceConnection connection = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+
+            colorService = IColorService.Stub.asInterface(service);
+            isBound = true;
+
+            Toast.makeText(MainActivity.this, "Connected",
+                    Toast.LENGTH_SHORT).show();
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+
+            isBound = false;
+            colorService = null;
+        }
+    };
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        btnChangeColor = findViewById(R.id.btnChangeColor);
+
+        btnChangeColor.setOnClickListener(v -> {
+
+            if (isBound && colorService != null) {
+
+                try {
+                    int randomColor = colorService.getRandomColor();
+
+                    btnChangeColor.setBackgroundColor(randomColor);
+
+                } catch (RemoteException e) {
+
+                    Toast.makeText(this, "Error",
+                            Toast.LENGTH_SHORT).show();
+                }
+
+            } else {
+
+                Toast.makeText(this, "Not connected",
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
 
 
