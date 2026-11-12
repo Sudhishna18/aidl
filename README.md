@@ -125,10 +125,52 @@ public class ColorService extends Service {
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Hello World!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
 ```
+
+## CLIENT APP
+## IColorService.aidl
+```JAVA
+package com.example.aidlserver;
+
+interface IColorService {
+     int getRandomColor();
+}
+```
+
+## MainActivity.java
+```JAVA
+package com.example.aidlclient;
+
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
+import android.os.Bundle;
+import android.os.IBinder;
+import android.os.RemoteException;
+import android.widget.Button;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.aidlserver.IColorService;
+
+public class MainActivity extends AppCompatActivity {
+
+    private IColorService colorService;
+    private boolean isBound = false;
+    private Button btnChangeColor;
+
+    private ServiceConnection connection = new ServiceConnection() {
 
 
