@@ -279,7 +279,6 @@ public class MainActivity extends AppCompatActivity {
 
 </manifest>
 ```
-
 ## activity_main.xml
 ```XML
 <?xml version="1.0" encoding="utf-8"?>
@@ -299,7 +298,16 @@ public class MainActivity extends AppCompatActivity {
         android:textSize="24sp" />
 
 </LinearLayout>
-Thus a Simple Android Application to create a AIDL interface and communicate the process between client and server using AIDL interface in Android Studio is developed and executed successfully.
+```
+## OUTPUT
+
+## SERVER
+<img width="1917" height="1138" alt="Screenshot 2026-11-12 172440" src="https://github.com/user-attachments/assets/517f4a2a-26c9-4056-bae1-1510f11567b9" />
+
+
+## CLIENT
+<img width="1917" height="1141" alt="Screenshot 2026-11-12 170538" src="https://github.com/user-attachments/assets/7a0b812d-306e-4b35-99f0-ac1dd600b541" />
+
 
 
 
