@@ -221,5 +221,54 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onStart() {
+
+        super.onStart();
+
+        Intent intent = new Intent(
+                "com.example.aidlserver.IColorService");
+
+        intent.setPackage("com.example.aidlserver");
+
+        bindService(intent, connection, Context.BIND_AUTO_CREATE);
+    }
+
+    @Override
+    protected void onStop() {
+
+        super.onStop();
+
+        if (isBound) {
+
+            unbindService(connection);
+            isBound = false;
+        }
+    }
+}
+```
+
+## AndroidManifest.xml
+```XML
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <queries>
+        <package android:name="com.example.aidlserver" />
+    </queries>
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Aidlclient">
+        <activity
+            android:name=".MainActivity"
+```
+
+
 
 
