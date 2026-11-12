@@ -1,7 +1,6 @@
 # Ex.No:2 Develop an android application to implement the AIDL server and client app. The server app hosts a Bound Service and contains the logic to return random colours to its client.The client app calls the service and changes the button's colour within the Main activity.
 
 
-
 ## AIM:
 
 To Develop an android application to implement the AIDL server and client app. The server app hosts a Bound Service and contains the logic to return random colours to its client.
@@ -26,20 +25,3 @@ Step 5: Design layout in activity_main.xml.
 Step 6: Display message give in MainActivity file(client/server).
 
 Step 7: Save and run the application.
-
-## PROGRAM:
-```
-/*
-Program to print the client/server services using AIDL”.
-Developed by:
-Registeration Number :
-*/
-```
-
-## OUTPUT
-
-
-
-
-## RESULT
-Thus a Simple Android Application to create a AIDL interface and communicate the process between client and server using AIDL interface in Android Studio is developed and executed successfully.
