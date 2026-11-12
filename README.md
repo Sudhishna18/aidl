@@ -267,7 +267,41 @@ public class MainActivity extends AppCompatActivity {
         android:theme="@style/Theme.Aidlclient">
         <activity
             android:name=".MainActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
 ```
+
+## activity_main.xml
+```XML
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btnChangeColor"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:text="Tap me!"
+        android:textSize="24sp" />
+
+</LinearLayout>
+Thus a Simple Android Application to create a AIDL interface and communicate the process between client and server using AIDL interface in Android Studio is developed and executed successfully.
+
+
 
 
 
